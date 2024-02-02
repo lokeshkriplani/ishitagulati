@@ -1,0 +1,369 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Ishita Gulati</title>
+<link rel="apple-touch-icon" sizes="180x180"
+	href="./favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="./favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="./favicons/favicon-16x16.png">
+<link rel="manifest" href="./favicons/site.webmanifest">
+<link rel="stylesheet"
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css">
+	<title>Portfolio</title>
+
+</head>
+<style>
+
+
+     h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .group {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .group h3 {
+            color: #555;
+        }
+
+        .main-photo {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            cursor: pointer;
+            border: 3px solid #fff;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .main-photo:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 800px;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("Photo.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-bottom: 100px solid #000;
+        }
+
+        table {
+            width: 50%;
+            margin: 50px auto;
+            border-collapse: collapse;
+                  background-color: #f2f2f2; /* Add background color to the table */
+
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+		.nav-link {
+            color: white !important; /* Set text color to white for the nav-link */
+            }
+
+            .navbar-toggler {
+            background-color: white;
+            overflow: hidden;
+            position: relative;
+            font-size: 10px;
+        }
+
+        .navbar-toggler-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8px;
+            color: #000;
+        }
+
+             @media only screen and (max-width: 767px) {
+            .navbar-toggler {
+                width: 40px;
+            }
+
+            .navbar-toggler-text {
+                font-size: 10px;
+            }
+            .navbar-collapse {
+            position: relative;
+            top: 100%; /* Adjust this value as needed */
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Set a higher z-index to ensure it appears above other content */
+                        background-color: #343a40; /* Add background color for the dropdown menu items */
+
+        }
+
+        .navbar-nav .nav-item.dropdown {
+            position: static;
+        }
+
+        .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Set a higher z-index to ensure it appears above other content */
+                        background-color: #343a40; /* Add background color for the dropdown menu items */
+
+        }
+
+        .navbar-nav .nav-item.dropdown .dropdown-menu {
+            display: none;
+            background-color: #343a40 !important; /* Add background color for the dropdown menu */
+
+        }
+        }
+        /* Add other styles as needed */
+
+    </style>
+<body onload="funload()">
+<header>
+	<nav class="navbar navbar-expand-sm bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				<img src="logo.png" alt="Google logo" width="100" height="57px">
+			</a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto"> <!-- "ms-auto" to push the items to the right -->
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">About</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+						   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Price List
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="CustomerLogin.html">Bridal</a>
+							<a class="dropdown-item" href="CustomerLogin1.html">Party Makeups</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="CustomerRegister.html">Book now</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="portfolio.html">Portfolio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="tel:+919773626775">Call now</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+
+
+
+	<div id="bottom-border1">
+		<img src="brands.jpg" alt="Image 1" class="bigger-image">
+		<img src="brands1.jpg" alt="Image 1" class="small-image">
+		<img src="brands2.jpg" alt="Image 2" class="small-image">
+		<img src="brands3.jpg" alt="Image 3" class="small-image">
+	</div>
+
+	<h2>Portfolio</h2>
+
+	<div class="gallery">
+		<div class="group" id="bridal">
+			<h3>Bridal</h3>
+			<img class="main-photo" src="bridal/main-photo.jpg" alt="Bridal Main Photo" onclick="openModal('bridal')">
+		</div>
+
+		<div class="group" id="party">
+			<h3>Party</h3>
+			<img class="main-photo" src="party/main-photo.jpg" alt="Party Main Photo" onclick="openModal('party')">
+		</div>
+
+		<div class="group" id="airbrush">
+			<h3>Airbrush</h3>
+			<img class="main-photo" src="airbrush/main-photo.jpg" alt="Airbrush Main Photo" onclick="openModal('airbrush')">
+		</div>
+
+		<div class="group" id="mature">
+			<h3>Mature</h3>
+			<img class="main-photo" src="mature/main-photo.jpg" alt="Mature Main Photo" onclick="openModal('mature')">
+		</div>
+	</div>
+
+	<div id="myModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<div class="modal-content">
+			<!-- Individual photos will be added dynamically using JavaScript -->
+		</div>
+	</div>
+
+	<script>
+    function openModal(group) {
+        var modal = document.getElementById('myModal');
+        var modalContent = document.querySelector('.modal-content');
+        modalContent.innerHTML = ''; // Clear previous content
+
+        // Dynamically load photos based on availability
+        var photoCount = 1;
+        while (true) {
+            var img = document.createElement('img');
+            img.src = `${group}/photo${photoCount}.jpg`;
+            img.alt = `${group} Photo ${photoCount}`;
+
+            // Check if the photo exists
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', img.src, false);
+            xhr.send();
+            if (xhr.status !== 200) {
+                break; // Photo doesn't exist, break the loop
+            }
+
+            modalContent.appendChild(img);
+            photoCount++;
+        }
+
+        modal.style.display = 'block';
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = 'none';
+    }
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  
+  
+
+		// Captcha Script
+
+		function checkform() {
+			var theform = document.getElementById("theform");
+			var why = "";
+
+			if (theform.CaptchaInput.value == "") {
+				why += "- Please Enter CAPTCHA Code.\n";
+			}
+			if (theform.CaptchaInput.value != "") {
+				if (ValidCaptcha(theform.CaptchaInput.value) == false) {
+					why += "- The CAPTCHA Code Does Not Match.\n";
+				}
+			}
+			if (why != "") {
+				alert(why);
+				event.preventDefault();
+				return false;
+			}
+			return true;
+		}
+
+		var a = Math.ceil(Math.random() * 9) + '';
+		var b = Math.ceil(Math.random() * 9) + '';
+		var c = Math.ceil(Math.random() * 9) + '';
+		var d = Math.ceil(Math.random() * 9) + '';
+		var e = Math.ceil(Math.random() * 9) + '';
+
+		var code = a + b + c + d + e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("CaptchaDiv").innerHTML = code;
+
+		// Validate input against the generated number
+		function ValidCaptcha() {
+			var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+			var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+			if (str1 == str2) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		// Remove the spaces from the entered and generated code
+		function removeSpaces(string) {
+			return string.split(' ').join('');
+		}
+	</script>
+</body>
+</html>

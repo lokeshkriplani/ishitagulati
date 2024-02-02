@@ -2,3 +2,7 @@
 /build/
 .classpath
 .settings
+node_modules/
+build/
+.env
+

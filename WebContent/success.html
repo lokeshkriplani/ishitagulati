@@ -1,0 +1,318 @@
+<html>
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Ishita Gulati</title>
+  <link rel="apple-touch-icon" sizes="180x180"
+        href="./favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32"
+        href="./favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16"
+        href="./favicons/favicon-16x16.png">
+  <link rel="manifest" href="./favicons/site.webmanifest">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.js"></script>
+
+</head>
+
+
+
+
+<style>
+
+
+     h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .group {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .group h3 {
+            color: #555;
+        }
+
+        .main-photo {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            cursor: pointer;
+            border: 3px solid #fff;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .main-photo:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 800px;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("Photo.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        #bottom-border {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 100px; /* Adjust the height as needed */
+            background-color: #000;
+        }
+        table {
+            width: 50%;
+            margin: 50px auto;
+            border-collapse: collapse;
+                  background-color: #f2f2f2; /* Add background color to the table */
+
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+		.nav-link {
+            color: white !important; /* Set text color to white for the nav-link */
+            }
+
+            #calendar {
+    width: 80%; /* Adjust the width as needed */
+    height: 800px; /* Adjust the height as needed */
+    margin: 50px auto;
+}
+
+        /* Add other styles as needed */
+
+    </style>
+<body onload="funload()">
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark">
+    <a class="navbar-brand"> <!-- The below line can be an image or a h1, either will work -->
+      <img src="logo.png" alt="Google logo" width="100" height="57px">
+    </a>
+
+    <button style="background-color: white;" class="navbar-toggler"
+            type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><span><a class="nav-link"
+                                      href="index.html">About</a></span></li>
+        <li class="nav-item dropdown">
+          <span><a class="nav-link" href="#">Price List</a></span>
+          <ul class="dropdown-menu">
+            <li><a href="CustomerLogin.html">Bridal</a></li>
+            <li><a href="CustomerLogin1.html">Party Makeups</a></li>
+          </ul>
+        </li>
+        <li class="nav-item "><span><a class="nav-link"
+                                       href="CustomerRegister.html">Book now</a></span></li>
+        <li class="nav-item "><span><a class="nav-link"
+                                       href="portfolio.html">Portfolio</a></span></li>
+        <li class="nav-item">
+						<span>
+							<a class="nav-link" href="tel:+919773626775">Call now</a>
+                          <!-- Replace +123456789 with your actual phone number -->
+						</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+
+<div id="bottom-border1">
+  <img src="brands.jpg" alt="Image 1" class="bigger-image">
+  <img src="brands1.jpg" alt="Image 1" class="small-image">
+  <img src="brands2.jpg" alt="Image 2" class="small-image">
+  <img src="brands3.jpg" alt="Image 3" class="small-image">
+</div>
+
+
+<div id="calendar"></div>
+
+<div id="eventForm">
+  <h2>Add Event</h2>
+  <form id="addEventForm">
+    <label for="eventTitle">Event Title:</label>
+    <input type="text" id="eventTitle" name="eventTitle" required>
+
+    <label for="eventStart">Event Start Date and Time:</label>
+    <input type="datetime-local" id="eventStart" name="eventStart" required>
+
+    <label for="eventEnd">Event End Date and Time:</label>
+    <input type="datetime-local" id="eventEnd" name="eventEnd" required>
+
+    <button type="button" onclick="addEvent()">Add Event</button>
+  </form>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
+
+<script>
+  // Global variable to store the calendar
+  let calendar;
+
+  // Image Slideshow
+  const images = ["Photo.jpg", "Photo1.jpg", "Photo2.jpg"];
+  let currentImageIndex = 0;
+
+  function startSlideshow() {
+    setInterval(updateBackground, 5000); // Change image every 5 seconds
+  }
+
+  function updateBackground() {
+    document.body.style.backgroundImage = `url("${images[currentImageIndex]}")`;
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+  }
+
+  // Function to fetch events from the server
+  async function fetchEvents() {
+    try {
+      const response = await fetch('http://localhost:3000/events');
+      const events = await response.json();
+      return events;
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      return [];
+    }
+  }
+
+  // Function to add an event
+  async function addEvent() {
+    const eventTitle = document.getElementById('eventTitle').value;
+    const eventStart = document.getElementById('eventStart').value;
+    const eventEnd = document.getElementById('eventEnd').value;
+
+    if (eventTitle && eventStart && eventEnd) {
+      try {
+        // Send data to the server
+        const response = await fetch('http://localhost:3000/events', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ title: eventTitle, start: eventStart, end: eventEnd }),
+        });
+
+        if (response.ok) {
+          // Fetch updated events from the server and render the calendar
+          const updatedEvents = await fetchEvents();
+          calendar.removeAllEvents();
+          calendar.addEventSource(updatedEvents);
+          calendar.refetchEvents();
+        } else {
+          console.error('Failed to add event:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error adding event:', error);
+      }
+
+      // Clear the form
+      document.getElementById('addEventForm').reset();
+    } else {
+      alert('Please fill in all the fields.');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const calendarEl = document.getElementById('calendar');
+
+    // Initialize the calendar
+    calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay',
+      },
+      events: fetchEvents, // Pass the function reference, not invoking it
+    });
+
+    // Render the calendar
+    calendar.render();
+
+    // Start the slideshow and fetch events
+    startSlideshow();
+    fetchEvents();
+  });
+</script>
+
+<!-- Include your existing script dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
